@@ -40,6 +40,11 @@ function deleteNth(arr, n) {
   return arr.filter(el => (presence[el] = (presence[el] ?? 0) + 1, presence[el] <= n))
 } */
 
+//* Good solution [not mine]
+/* function deleteNth(arr, x) {
+  return arr.filter((e, i) => arr.slice(0, i).filter((f) => f == e).length < x);
+} */
+
 const input = [1, 2, 3, 1, 2, 1, 2, 3];
 const output = deleteNth(input, 2);
 console.log(output); // [1, 2, 3, 1, 2, 3]
