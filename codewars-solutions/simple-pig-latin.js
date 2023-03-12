@@ -7,4 +7,12 @@ function pigIt(str) {
     .join(" ");
 }
 
+//* pigIt for words
+/* function translatePigLatin(str) {
+  return str.replace(
+    /^([^aeiou]+)?(\w+)?/gi,
+    (_, p, q) => `${q ?? ""}${p ?? "w"}ay`
+  );
+} */
+
 console.log(pigIt("Pig latin is cool"));
