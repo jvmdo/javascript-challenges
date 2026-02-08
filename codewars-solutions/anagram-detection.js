@@ -1,30 +1,40 @@
+// * Better one
 const isAnagram = function (test, original) {
-  const testCharMap = buildCharMap(test);
-  const originalCharMap = buildCharMap(original);
+  if (test.length !== original.length) return false;
 
-  if (Object.keys(testCharMap).length !== Object.keys(originalCharMap).length) {
-    return false;
-  }
+  const a = test.toLowerCase();
+  const b = original.toLowerCase();
 
-  for (const char in testCharMap) {
-    if (testCharMap[char] !== originalCharMap[char]) {
-      return false;
-    }
-  }
-
-  return true;
+  return a.split("").sort().join("") === b.split("").sort().join("");
 };
 
-function buildCharMap(str) {
-  const cleanStr = str.replace(/[^\w]/g, "").toLowerCase();
-  const charMap = {};
+// const isAnagram = function (test, original) {
+//   const testCharMap = buildCharMap(test);
+//   const originalCharMap = buildCharMap(original);
 
-  for (let char of cleanStr) {
-    charMap[char] = charMap[char] + 1 || 1;
-  }
+//   if (Object.keys(testCharMap).length !== Object.keys(originalCharMap).length) {
+//     return false;
+//   }
 
-  return charMap;
-}
+//   for (const char in testCharMap) {
+//     if (testCharMap[char] !== originalCharMap[char]) {
+//       return false;
+//     }
+//   }
+
+//   return true;
+// };
+
+// function buildCharMap(str) {
+//   const cleanStr = str.replace(/[^\w]/g, "").toLowerCase();
+//   const charMap = {};
+
+//   for (let char of cleanStr) {
+//     charMap[char] = charMap[char] + 1 || 1;
+//   }
+
+//   return charMap;
+// }
 
 const output = isAnagram("anagram", "gramana");
 console.log(output);

@@ -2,8 +2,14 @@
 function digitalRoot(n, sum = 0) {
   if (!n && sum >= 0 && sum < 10) return sum;
   if (!n) return digitalRoot(sum);
-  return (sum += n % 10), (n = Math.floor(n / 10)), digitalRoot(n, sum);
+  return ((sum += n % 10), (n = Math.floor(n / 10)), digitalRoot(n, sum));
 }
+
+//* Another solution
+// function digitalRoot(n) {
+//   if (n < 10) return n
+//   return digitalRoot(n.toString().split("").map(Number).reduce((cur, acc) => cur + acc, 0))
+// }
 
 //* Clever solution [not mine]
 /* function digital_root(n) {
